@@ -65,7 +65,7 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            text: 'Matheus'
+            color: 'green'
         }
     }
     render() {
@@ -73,10 +73,17 @@ class App extends Component {
             //State é o estado da aplicação
             //Stateful - componente que manipula estado
             //Stateless - Não manipulam estados, funções puras não manipulam
-            <div className='container' onClick={() => this.setState({
-                text: 'Outro texto'
-            })}>
-                {this.state.text}
+            <div>
+                <Square color={this.state.color} />
+
+                {['red', 'green', 'blue'].map((color) => (
+                    <Button
+                        key={color}
+                        handleClick={() => this.setState({ color })}>
+                        {color}
+                    </Button>
+                ))}
+
             </div>
         )
     }
@@ -89,7 +96,7 @@ class App extends Component {
 //         return (
 //         <div className='container'>
 //             {/* {} expressão, dessa forma passa outros tipos de dados  */}
-//             <Title name='Matheus'  />
+//             <Title name='Matheus' />
 //         </div>
 //         )   
 //     }
