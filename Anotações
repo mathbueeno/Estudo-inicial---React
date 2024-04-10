@@ -1,0 +1,17 @@
+// Lifecycle
+
+// mounting / unmonting - montagem e desmontagem
+
+// componentWillMount - Vai montar, sabemos o momento antes do componente montar
+// componentDidMount  - Saber quando o componente acabou de ser montado, componente montou e ele executa o método
+// componentWillMount - Saber o momento que o componente será desmontado ou removido da tela
+
+
+
+
+// updating
+
+// componentWillReceiveProps (nextProps) - Momento em que o componente vai receber novas propriedade, podemos pegar por parametros as novas.
+// shouldComponentUpdate(nextProps, nextState) => bool - fazer comparação com estato anterior
+// componentWillUpdate(nextProps, nextState) - Componente vai ser atualiza (após o should), neste momento é antes da atualização.
+// componentDidUpdate(prevProps, prevState) - Aqui o componente foi atualizado, recebe quais as propriedades e pega qual foi o anterior e props passadas

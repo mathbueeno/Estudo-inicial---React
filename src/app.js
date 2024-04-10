@@ -2,6 +2,7 @@
 import React, { Component } from 'react' // Sempre importar usando o shorthand notation
 import Square from './square'
 import Button from './button.js'
+import Timer from './timer'
 import LikeButton from './like-button.js'
 import SearchButton from './search-button.js'
 
@@ -65,16 +66,31 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            color: 'green'
+            time: 0,
+            showTimer: true
         }
     }
+
+    componentWillMount() {
+        console.log('render')
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount')
+    }
+
+    componentWillUnmount() {
+
+    }
+
+
     render() {
         return (
             //State é o estado da aplicação
             //Stateful - componente que manipula estado
             //Stateless - Não manipulam estados, funções puras não manipulam
             <div>
-                <Square color={this.state.color} />
+                {/* <Square color={this.state.color} />
 
                 {['red', 'green', 'blue'].map((color) => (
                     <Button
@@ -82,9 +98,14 @@ class App extends Component {
                         handleClick={() => this.setState({ color })}>
                         {color}
                     </Button>
-                ))}
+                ))} */}
 
-            </div>
+                {this.state.showTimer && <Timer time={this.state.time} />}
+                <button onClick={() => {
+                    this.setState({ showTimer: !this.state.showTimer })
+
+                }}>Show / Hide timer</button>
+            </div >
         )
     }
 }
