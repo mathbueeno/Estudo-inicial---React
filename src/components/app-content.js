@@ -5,20 +5,20 @@ import UserInfo from './user-info'
 import Actions from './actions'
 import Repos from './repos'
 
-const AppContent = ({userinfo, repos, starred}) => (
+const AppContent = ({userinfo, repos, starred, handleSearch}) => (
     // Quebrando em componentes
 
     <div className='app'>
     
     {/* Barra de pesquisa */}
-        < Search />
+        < Search handleSearch={handleSearch}/>
 
     {/* Informações do Usuário */}
     {/* Curto Circuito do JS */}
         {!!userinfo && < UserInfo userinfo={userinfo}/>}
 
     {/* Ações dos Botões     */}
-        {!!userinfo && <Actions/>}
+        {!!userinfo && <Actions />}
 
     {/* Repositórios */}
         {!!repos.length &&
